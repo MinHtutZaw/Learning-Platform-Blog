@@ -20,9 +20,9 @@ Route::get('/', function () {
         "blogs"=>Blog::all()
     ]);
 });
-Route::get("/blogs/{blog}",function($id){
+Route::get("/blogs/{blog}",function(Blog $blog){ // wildcard name must be same as route Model variable {blog}=Blog $blog  
     return view("blog",[
-        "blog" => Blog::findOrFail($id)
+        "blog" => $blog  //Blog::find0rFail($id);
     ]
 );
 })->where("blog","[A-z\d\-\? ]+");
