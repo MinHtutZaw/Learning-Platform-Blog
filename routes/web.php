@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\RedirectResponse;
 use App\Models\Blog;
+use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,9 @@ Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be s
     ]
 );
 })->where("blog","[A-z\d\-\? ]+");
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('blogs', [
+        'blogs'=>$category->blogs
+    ]);
+});
