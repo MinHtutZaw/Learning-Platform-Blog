@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('blogs',[
-        "blogs"=>Blog::all()
+        "blogs"=>Blog::with('category')->get()  // eager load lazy loading 
     ]);
 });
 Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be same as route Model variable {blog}=Blog $blog  
