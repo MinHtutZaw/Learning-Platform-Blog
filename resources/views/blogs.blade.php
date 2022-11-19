@@ -8,6 +8,7 @@
     <h1>
        <a href="blogs/{{$blog->slug}}"> {{$blog->title}} </a>
      </h1>
+     <h3>Author - <a href="/users/{{$blog->author->slug}} "> {{$blog->author->name}} </a></h3>
      <p>category -  <a href="/categories/{{$blog->category->slug}} ">{{$blog->category->name}}</a></p>
   <div>
     <p>  published at-  {{$blog->created_at->diffForHumans()}} </p>
