@@ -25,10 +25,14 @@ Route::get('/', function () {
 });
 Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be same as route Model variable {blog}=Blog $blog  
     return view("blog",[
-        "blog" => $blog  //Blog::find0rFail($ );
+        "blog" => $blog, 
+        "randomBlogs"=>Blog::inRandomOrder()->take(3)->get()
+        
+        
     ]
 );
 })->where("blog","[A-z\d\-\? ]+");
+
 Route::get('/users/{user:username}', function (User $user) {
     return view('blogs', [
         'blogs'=>$user->blogs
