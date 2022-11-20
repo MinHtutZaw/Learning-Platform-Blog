@@ -32,7 +32,6 @@ Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be s
     ]
 );
 })->where("blog","[A-z\d\-\? ]+");
-
 Route::get('/users/{user:username}', function (User $user) {
     return view('blogs', [
         'blogs'=>$user->blogs
