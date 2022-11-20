@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/users/{user:username}', function (User $user) {
-    return view('blogs', [
-        'blogs'=>$user->blogs
-    ]);
-});
+
 
 Route::get('/', function () {
     return view('blogs',[
@@ -33,7 +29,11 @@ Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be s
     ]
 );
 })->where("blog","[A-z\d\-\? ]+");
-
+Route::get('/users/{user:username}', function (User $user) {
+    return view('blogs', [
+        'blogs'=>$user->blogs
+    ]);
+});
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('blogs', [
         'blogs'=>$category->blogs
