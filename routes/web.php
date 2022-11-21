@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('blogs',[
-        "blogs"=>Blog::latest()->get() // eager load lazy loading 
+        "blogs"=>Blog::latest()->get(), // eager load lazy loading 
+        "categories"=>Category::all()
     ]);
 });
 Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be same as route Model variable {blog}=Blog $blog  
@@ -34,11 +35,15 @@ Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be s
 })->where("blog","[A-z\d\-\? ]+");
 Route::get('/users/{user:username}', function (User $user) {
     return view('blogs', [
-        'blogs'=>$user->blogs
+        'blogs'=>$user->blogs,
+        'categories'=>Category::all()
     ]);
 });
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('blogs', [
-        'blogs'=>$category->blogs
+        'blogs'=>$category->blogs,
+        'categories'=>Category::all(),
+        'currentCategory'=>$category
+
     ]);
 });
