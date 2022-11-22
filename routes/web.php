@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Blogcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,25 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    $blogs=Blog::latest();
-    if(request('search')){
-        $blogs=$blogs->where('title','LIKE','%'.request('search').'%');
-    }
-    return view('blogs',[
-        "blogs"=>$blogs->get(), // eager load lazy loading 
-        "categories"=>Category::all()
-    ]);
-});
-Route::get("/blogs/{blog:slug}",function(Blog $blog){ // wildcard name must be same as route Model variable {blog}=Blog $blog  
-    return view("blog",[
-        "blog" => $blog, 
-        "randomBlogs"=>Blog::inRandomOrder()->take(3)->get()
-        
-        
-    ]
-);
-})->where("blog","[A-z\d\-\? ]+");
+Route::get('/', [Blogcontroller::class,'index']);
+Route::get('/blogs/{blog:slug}', [BlogController::class,'show'])->where("blog","[A-z\d\-\? ]+");
 Route::get('/users/{user:username}', function (User $user) {
     return view('blogs', [
         'blogs'=>$user->blogs,
