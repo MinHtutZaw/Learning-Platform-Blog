@@ -11,7 +11,7 @@ class Blogcontroller extends Controller
     public function index() {
         
         return view('blogs',[
-            'blogs'=>$this->getBlogs(), // eager load lazy loading 
+            'blogs'=>Blog::latest()->filter(request([('search')]))->get(), // eager load lazy loading 
             "categories"=>Category::all()
         ]);
     }
@@ -23,14 +23,6 @@ class Blogcontroller extends Controller
      ]
      );
     }
-    protected function getBlogs()
-    {
-        $blogs=Blog::latest();
-        if(request('search')){
-            $blogs=$blogs->where('title','LIKE','%'.request('search').'%')
-                         ->orWhere('body','LIKE','%'.request('search').'%');
-        }
-        return $blogs->get();
-    }
+    
     
 }
