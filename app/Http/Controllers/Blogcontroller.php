@@ -11,7 +11,7 @@ class Blogcontroller extends Controller
     public function index() {
         
         return view('blogs',[
-            'blogs'=>Blog::latest()->filter(request([('search')]))->get(), // eager load lazy loading 
+            'blogs'=>Blog::latest()->filter(request(['search','category','author']))->get(), // eager load lazy loading 
             "categories"=>Category::all()
         ]);
     }
