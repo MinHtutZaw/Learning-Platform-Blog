@@ -30,12 +30,12 @@ class Blog extends Model
              }
             );     
        });
-       $query->when($filter['author']??false, function($query,$username){
-        $query->whereHas('author',function($query) use($username){
-          $query->where('username',$username);
-        }
-       );     
-  });
+      
+         $query->when($filter['username']??false, function ($query, $username) {
+          $query->whereHas('author', function ($query) use ($username) {
+              $query->where('username', $username);
+          });
+       });
     }
 
 
