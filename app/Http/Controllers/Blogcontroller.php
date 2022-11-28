@@ -12,7 +12,7 @@ class Blogcontroller extends Controller
         
         return view('blogs',[
             'blogs'=>Blog::latest()->filter(request(['search','category','author']))->get(), // eager load lazy loading 
-            "categories"=>Category::all()
+            
         ]);
     }
     public function show(Blog $blog)
