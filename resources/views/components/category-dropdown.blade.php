@@ -13,6 +13,10 @@
                 class="dropdown-menu"
                 aria-labelledby="dropdownMenuButton1"
             >
+            <li><a
+                class="dropdown-item"
+                href="/"
+            >All</a></li>
                    @foreach($categories as $category)
                    <li><a
                         class="dropdown-item"
