@@ -24,7 +24,7 @@ class Blogcontroller extends Controller
         "randomBlogs"=>Blog::inRandomOrder()->take(3)->get()   
      ]
      );
-    }
+    } 
     
     
 }

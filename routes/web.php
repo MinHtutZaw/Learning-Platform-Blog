@@ -4,6 +4,7 @@ use App\Models\Blog;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Blogcontroller;
 
 /*
@@ -20,6 +21,8 @@ use App\Http\Controllers\Blogcontroller;
 
 Route::get('/', [Blogcontroller::class,'index']);
 Route::get('/blogs/{blog:slug}', [BlogController::class,'show'])->where("blog","[A-z\d\-\? ]+");
+Route::get('/register', [AuthController::class,'create']);
+
 // Route::get('/users/{user:username}', function (User $user) {
 //     return view('blogs', [
 //         'blogs'=>$user->blogs,
