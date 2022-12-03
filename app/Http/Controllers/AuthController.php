@@ -22,8 +22,8 @@ class AuthController extends Controller
         ]
            
         );
-         User::create($formData);
+         $user=User::create($formData);
 
-         return redirect('/');
+         return redirect('/')->with('success','Welcome From Page,Dear  '.$user->name)  ;  //key ,value     
     }
 }
