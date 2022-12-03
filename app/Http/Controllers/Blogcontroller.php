@@ -10,7 +10,7 @@ class Blogcontroller extends Controller
 {
     public function index() {
         
-        return view('blogs',[
+        return view('blogs.index',[
             'blogs'=>Blog::latest()->filter(request(['search','category','username']))
                                    ->paginate(6) // eager load lazy loading 
                                    ->withQueryString()
@@ -19,7 +19,7 @@ class Blogcontroller extends Controller
     }
     public function show(Blog $blog)
     {              
-     return view("blog",[
+     return view("blog.show",[
         "blog" => $blog, 
         "randomBlogs"=>Blog::inRandomOrder()->take(3)->get()   
      ]
