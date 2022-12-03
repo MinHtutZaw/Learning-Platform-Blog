@@ -15,10 +15,14 @@
                             <input
                                 type="text"
                                 name="name"
+                                value="{{old('name')}}"
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
                             >
+                            @error('name')
+                              <p class="text-danger"> {{$message}} </p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label
@@ -28,10 +32,14 @@
                             <input
                                 type="text"
                                 name="username"
+                                value="{{old('username')}}"
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
                             >
+                            @error('username')
+                              <p class="text-danger"> {{$message}} </p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label
@@ -41,10 +49,14 @@
                             <input
                                 type="email"
                                 name="email"
+                                value="{{old('email')}}"
                                 class="form-control"
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
                             >
+                            @error('email')
+                              <p class="text-danger"> {{$message}} </p>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label
@@ -54,9 +66,13 @@
                             <input
                                 type="password"
                                 name="password"
+                                value="{{old('password')}}"
                                 class="form-control"
                                 id="exampleInputPassword1"
                             >
+                            @error('password')
+                              <p class="text-danger"> {{$message}} </p>
+                            @enderror
                         </div>
                         <button
                             type="submit"
