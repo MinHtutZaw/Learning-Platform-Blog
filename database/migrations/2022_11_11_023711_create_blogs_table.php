@@ -18,7 +18,7 @@ class CreateBlogsTable extends Migration
             $table->string('title');
             $table->foreignId('category_id');
             $table->foreignId('user_id');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->text('intro'); //string limit words 255 mysql vrchr data type
             $table->text('body');
             $table->timestamps();

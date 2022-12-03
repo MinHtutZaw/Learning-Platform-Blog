@@ -13,6 +13,7 @@
                                 class="form-label"
                             >Name</label>
                             <input
+                                required
                                 type="text"
                                 name="name"
                                 value="{{old('name')}}"
@@ -20,7 +21,7 @@
                                 id="exampleInputEmail1"
                                 aria-describedby="emailHelp"
                             >
-                            @error('name')
+                             @error('name')
                               <p class="text-danger"> {{$message}} </p>
                             @enderror
                         </div>
@@ -30,6 +31,7 @@
                                 class="form-label"
                             >Username</label>
                             <input
+                                required
                                 type="text"
                                 name="username"
                                 value="{{old('username')}}"
@@ -48,6 +50,7 @@
                             >Email address</label>
                             <input
                                 type="email"
+                                required
                                 name="email"
                                 value="{{old('email')}}"
                                 class="form-control"
@@ -65,6 +68,7 @@
                             >Password</label>
                             <input
                                 type="password"
+                                required
                                 name="password"
                                 value="{{old('password')}}"
                                 class="form-control"
