@@ -12,7 +12,7 @@
           <div>
             <h4> Author - <a href="/users/{{$blog->author->username}} ">{{$blog->author->name}}</a> </h4>
             <div class="badge bg-primary"> <a href="/categories/{{$blog->category->slug}}"><span>  {{$blog->category->name}}  </span></a>  </div>
-            <div class="text-secondary"  ><span> {{$blog->created_at->diffForHumans()}}</span></div>
+            <div class="text-secondary"  ><span> {{$blog->created_at->format("F j, Y, g:i a")}}</span></div>
           </div>
           <p class="lh-md mt-3">
            {{$blog->body}}
