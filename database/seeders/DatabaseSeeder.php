@@ -16,8 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {   
-        Category::truncate();
-        User::truncate();
+        
 
         $mhz=User::factory()->create(['name'=>'Min Htut','username'=>'minhtut']);
         $wpt=User::factory()->create(['name'=>'Wai Paing','username'=>'waipaing']);
