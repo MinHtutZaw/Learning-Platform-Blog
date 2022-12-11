@@ -16,6 +16,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'avatar' => 'https://i.pravatar.cc/150?u='.$this->faker->randomNumber(1,100),
             'username' => $this->faker->username(), 
             'email' => $this->faker->safeEmail(),
             'email_verified_at' => now(),

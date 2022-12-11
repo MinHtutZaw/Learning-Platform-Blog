@@ -40,10 +40,15 @@
                             >
                             <x-error name='password'/>
                         </div>
+                    <div class="d-flex justify-content-center">
                         <button
                             type="submit"
-                            class="btn btn-primary"
-                        >Submit</button>
+                            class="btn btn-primary "
+                        >Sign In</button>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <p>Don't you have account? <a href="/register">Sign Up Here</a> </p>
+                    </div>    
                     </form>
                 </div>
             </div>

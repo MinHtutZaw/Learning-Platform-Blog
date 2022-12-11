@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $frontend=Category::factory()->create(['name'=>'frontend','slug'=>'frontend']);
         $backend=Category::factory()->create(['name'=>'backend','slug'=>'backend']);
 
-        Blog::factory(20)->create();
+        Blog::factory(5)->create();
 
          //overwrite
       
