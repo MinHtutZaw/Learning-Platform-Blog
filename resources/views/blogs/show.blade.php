@@ -22,20 +22,24 @@
     </div>
     <section class="container">
         <div class="col-md-8 mx-auto">
+        @auth
             <x-card-wrapper
                 class="bg-secondary"
                 
             >
-                <form>
+                <form
+                action="/blogs/{{$blog->slug}}/comments"
+                    method="POST">
+                    @csrf
                     <div class="mb-3">
                         <textarea
-                            name=""
+                            name="body"
                             cols="10"
                             class="form-control border border-0"
                             rows="5"
                             placeholder="say something..."
                         ></textarea>
-
+                      <x-error name="body"></x-error>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button
@@ -44,6 +48,9 @@
                         >Submit</button>
                     </div>
                 </form>
+                @else
+            <p class="text-center">please <a href="/login">login</a> to participate in this discussion.</p>
+            @endauth
             </x-card-wrapper>
         </div>
     </section>

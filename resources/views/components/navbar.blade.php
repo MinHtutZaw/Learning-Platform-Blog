@@ -7,6 +7,12 @@
           <a href="/register" class="nav-link">Create New Account</a>
           <a href="/login" class="nav-link">Login</a>
           @else
+          <img
+                src="{{auth()->user()->avatar}}"
+                width="50"
+                height="50"
+                class="rounded-circle"
+            >
             <a
                 href=""
                 class="nav-link"
