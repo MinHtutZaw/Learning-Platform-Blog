@@ -11,8 +11,11 @@
           <h3 class="my-3"> {{$blog->title}} </h3>
           <div>
             <h4> Author - <a href="/users/{{$blog->author->username}} ">{{$blog->author->name}}</a> </h4>
-            <div class="badge bg-primary"> <a href="/categories/{{$blog->category->slug}}"><span>  {{$blog->category->name}}  </span></a>  </div>
+            <div class="badge bg-gray"> <a href="/categories/{{$blog->category->slug}}"><span>  {{$blog->category->name}}  </span></a>  </div>
             <div class="text-secondary"  ><span> {{$blog->created_at->format("F j, Y, g:i a")}}</span></div>
+            <div class="text-secondary"  >
+              <button class="btn btn-warning mt-2"> subscribe </button>
+            </span></div>
           </div>
           <p class="lh-md mt-3">
            {{$blog->body}}
@@ -36,7 +39,7 @@
     <x-comments :comments="$blog->comments" />
     @endif
    
-    <x-subscribe/>
+    <!-- <x-subscribe/> -->
     <x-blogs_you_may_like  :randomBlogs='$randomBlogs'  />
  
  
