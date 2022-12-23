@@ -14,7 +14,17 @@
             <div class="badge bg-gray"> <a href="/categories/{{$blog->category->slug}}"><span>  {{$blog->category->name}}  </span></a>  </div>
             <div class="text-secondary"  ><span> {{$blog->created_at->format("F j, Y, g:i a")}}</span></div>
             <div class="text-secondary"  >
-              <button class="btn btn-warning mt-2"> subscribe </button>
+            <form
+                            action=""
+                            method="POST"
+                        >
+                            @if (auth()->user()->isSubscribed($blog))
+                            <button class="btn btn-danger">unsubscribe</button>
+                            @else
+                            <button class="btn btn-warning">subscribe</button>
+                            @endif
+                        </form>
+            
             </span></div>
           </div>
           <p class="lh-md mt-3">
