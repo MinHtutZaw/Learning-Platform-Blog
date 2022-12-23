@@ -13,7 +13,7 @@
         
         
         />  
-  <!-- <x-subscribe/> -->
+
    
 
 </x-layout>

@@ -19,6 +19,7 @@ class CommentController extends Controller
        ]);
 
         return back();
+            //  redirect('/blogs'.$blog->slug);  comment pagination
     }
 }
  //testing 

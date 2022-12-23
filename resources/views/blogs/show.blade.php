@@ -36,10 +36,10 @@
   
     
     @if($blog->comments->count())
-    <x-comments :comments="$blog->comments" />
+    <x-comments :comments="$blog->comments()->latest()->get()" />
     @endif
    
-    <!-- <x-subscribe/> -->
+   
     <x-blogs_you_may_like  :randomBlogs='$randomBlogs'  />
  
  
