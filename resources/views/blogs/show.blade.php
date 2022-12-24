@@ -15,14 +15,17 @@
             <div class="text-secondary"  ><span> {{$blog->created_at->format("F j, Y, g:i a")}}</span></div>
             <div class="text-secondary"  >
             <form
-                            action=""
+                            action="/blogs/{{$blog->slug}} /subscription"
                             method="POST"
-                        >
+                        >   
+                        @csrf
+                        @auth
                             @if (auth()->user()->isSubscribed($blog))
-                            <button class="btn btn-danger">unsubscribe</button>
+                            <button class="btn btn-danger mt-3">unsubscribe</button>
                             @else
-                            <button class="btn btn-warning">subscribe</button>
+                            <button class="btn btn-warning mt-3">subscribe</button>
                             @endif
+                        @endauth    
                         </form>
             
             </span></div>
