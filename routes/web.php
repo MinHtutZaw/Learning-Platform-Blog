@@ -34,6 +34,11 @@ Route::post('/login', [AuthController::class,'post_login'])->middleware('guest')
 
 Route::post('/blogs/{blog:slug}/subscription', [BlogController::class, 'subscriptionHandler']);
 
+//admin 
+Route::get('/admin/blogs/create',[BlogController::class,'create'])->middleware('admin');
+
+
+
 // Route::get('/users/{user:username}', function (User $user) {
 //     return view('blogs', [
 //         'blogs'=>$user->blogs,
